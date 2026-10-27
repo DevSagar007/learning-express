@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Shell(curl -s http://localhost:5000/api/users/5)",
+      "Shell(curl -s -X POST http://localhost:5000/api/users -H \"Content-Type: application/json\" -d \"{\\\"name\\\":\\\"Rakib\\\",\\\"email\\\":\\\"rakib@gmail.com\\\",\\\"password\\\":\\\"123456\\\",\\\"age\\\":22}\")",
+      "Shell(curl -s -X DELETE http://localhost:5000/api/users/14)",
+      "Shell(kill:*)",
+      "Shell(npm:*)",
+      "Shell(curl -s -X POST http://localhost:5000/api/users -H \"Content-Type: application/json\" -d \"{\\\"name\\\":\\\"Rakibul Hasan\\\",\\\"email\\\":\\\"rakibul.hasan@example.com\\\",\\\"password\\\":\\\"supersecretpassword\\\",\\\"age\\\":22}\")",
+      "Shell(curl -s -i -X POST http://localhost:5000/api/profile -H \"Content-Type: application/json\" -d \"{\\\"user_id\\\":15,\\\"bio\\\":\\\"This is profile\\\",\\\"address\\\":\\\"Dhaka\\\",\\\"phone\\\":\\\"12345\\\",\\\"gender\\\":\\\"male\\\"}\")",
+      "Shell(curl -s -i -X POST http://localhost:5000/api/profile -H \"Content-Type: application/json\" -d \"{\\\"user_id\\\":99999,\\\"bio\\\":\\\"x\\\"}\")",
+      "Shell(curl -s -i -X POST http://localhost:5000/api/profile -H \"Content-Type: application/json\" -d \"{\\\"user_id\\\":15,\\\"bio\\\":\\\"dup\\\"}\")",
+      "Shell(curl -s -X DELETE http://localhost:5000/api/users/15)"
+    ],
+    "deny": [],
+    "defaultMode": "default"
+  }
+}
