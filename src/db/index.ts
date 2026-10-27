@@ -3,7 +3,7 @@ import config from "../config";
 
 export const pool = new Pool({
     connectionString: config.connect_string,
-})
+});
 
 // connect Db async function
 export const initDB = async () => {
@@ -18,10 +18,24 @@ export const initDB = async () => {
             age INT,
             created_at TIMESTAMP DEFAULT NOW(),
             updated_at TIMESTAMP DEFAULT NOW()
-            )`)
-        console.log("Database connected successful")
+            )`);
+
+        await pool.query(`CREATE TABLE IF NOT EXISTS profiles(
+                id SERIAL PRIMARY KEY ,
+                user_id INT UNIQUE REFERENCES users (id) ON DELETE CASCADE,
+                
+                bio TEXT,
+                address TEXT,
+                phone VARCHAR(15),
+                gender VARCHAR(10),
+
+            created_at TIMESTAMP DEFAULT NOW(),
+            updated_at TIMESTAMP DEFAULT NOW()
+                )`);
+
+        console.log("Database connected successful");
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
-}
-initDB(); 
+};
+initDB();
